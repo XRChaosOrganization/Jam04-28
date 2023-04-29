@@ -82,10 +82,18 @@ public class PlayerComponent : MonoBehaviour
         if (!isInvulnerable)
         {
             currentHealth -= damage;
-            //UIManager.uIm.UpdateHealth((float)currentHealth / maxHealth);
-            isInvulnerable = true;
-            yield return new WaitForSeconds(invulnerabilityTime);
-            isInvulnerable = false;
+            if (currentHealth <=0)
+            {
+                HUDComponent.hud.EndRun();
+            }
+            else
+            {
+                HUDComponent.hud.UpdateHealth((float)currentHealth / maxHealth);
+                isInvulnerable = true;
+                yield return new WaitForSeconds(invulnerabilityTime);
+                isInvulnerable = false;
+            }
+            
         }
         
         //call par les colliders du player
