@@ -7,7 +7,7 @@ public class PlayerComponent : MonoBehaviour
 {
     public static PlayerComponent instance;
     ShipHandler shipHandler;
-    public GameObject playerOrientable; //Le GameObject à rotate pour face une direction;
+    public GameObject playerOrientable; //Le GameObject ï¿½ rotate pour face une direction;
     
     public float playerMoveSpeed;
     public int maxHealth;
@@ -43,6 +43,6 @@ public class PlayerComponent : MonoBehaviour
         currentHealth -= damage;
         UIManager.uIm.UpdateHealth(currentHealth / maxHealth);
         //call par les colliders du player
-        //mettre une courte invulnérabilité a l'impact pour eviter de comptabiliser le meme impact plusieurs fois sur chaque collinder (avec une coroutine ?)
+        //mettre une courte invulnï¿½rabilitï¿½ a l'impact pour eviter de comptabiliser le meme impact plusieurs fois sur chaque collinder (avec une coroutine ?)
     }
 }
