@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 public class PlayerComponent : MonoBehaviour
 {
     public static PlayerComponent instance;
-    ShipHandler shipHandler;
-    public GameObject playerOrientable; //Le GameObject � rotate pour face une direction;
+    
+    public GameObject playerOrientable;
+    public GameObject projectilePrefab;
+    public Transform shootPoint;
+    public Transform bulletContainer;
     
     public float playerMoveSpeed;
     public float rotationSpeed;
@@ -15,10 +18,13 @@ public class PlayerComponent : MonoBehaviour
     public int currentHealth;
     public bool isInvulnerable;
     public float invulnerabilityTime;
-    PlayerInput playerInput;
+    public int playerDamage;
 
+    bool Shoot1enabled;
+    PlayerInput playerInput;
     Vector3 moveInput;
     Vector3 lookInput;
+    ShipHandler shipHandler;
 
     private void Awake()
     {
@@ -54,7 +60,7 @@ public class PlayerComponent : MonoBehaviour
         
         if (playerInput.currentControlScheme == "Keyboard&Mouse")
         {
-            lookInput = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            lookInput = Camera.main.ScreenToWorldPoint(Input.mousePosition).normalized;
         }
         else
         {
@@ -65,12 +71,18 @@ public class PlayerComponent : MonoBehaviour
         
     }
 
+    public void Fire(InputAction.CallbackContext context)
+    {
+        GameObject bullet = (GameObject)Instantiate(projectilePrefab,shootPoint.position,playerOrientable.transform.rotation,bulletContainer);
+        bullet.GetComponent<ProjectileComponent>().damage = playerDamage;
+    }
+
     public IEnumerator TakeDamage(int damage)
     {
         if (!isInvulnerable)
         {
             currentHealth -= damage;
-            UIManager.uIm.UpdateHealth((float)currentHealth / maxHealth);
+            //UIManager.uIm.UpdateHealth((float)currentHealth / maxHealth);
             isInvulnerable = true;
             yield return new WaitForSeconds(invulnerabilityTime);
             isInvulnerable = false;

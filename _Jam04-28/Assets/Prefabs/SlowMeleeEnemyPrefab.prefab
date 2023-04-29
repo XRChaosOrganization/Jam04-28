@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -883429846864728786}
   m_Layer: 0
   m_Name: SlowMeleeEnemyPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454418089170295333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,8 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d057b0aade74e48b66b49a19833f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 8668701740208156050, guid: b68b2038e3f0dde43860e9d5e88d592e,
+    type: 3}
   player: {fileID: 0}
+  HP: 15
   damageOnHit: 5
+  goldWorth: 10
 --- !u!195 &454418089170295391
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -151,4 +155,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

@@ -47,10 +47,10 @@ public class SpawnerComponent : MonoBehaviour
     }
     void GetCorners()
     {
-        Vector3 cornerA = new Vector3(ground.transform.position.x - ground.transform.localScale.x / 2,0, ground.transform.position.z + ground.transform.localScale.z / 2);
-        Vector3 cornerB = new Vector3(ground.transform.position.x + ground.transform.localScale.x / 2,0, ground.transform.position.z + ground.transform.localScale.z / 2);
-        Vector3 cornerC = new Vector3(ground.transform.position.x + ground.transform.localScale.x / 2,0, ground.transform.position.z - ground.transform.localScale.z / 2);
-        Vector3 cornerD = new Vector3(ground.transform.position.x - ground.transform.localScale.x / 2,0, ground.transform.position.z - ground.transform.localScale.z / 2);
+        Vector3 cornerA = new Vector3(ground.transform.position.x - ground.transform.localScale.x / 2,0f, ground.transform.position.z + ground.transform.localScale.z / 2);
+        Vector3 cornerB = new Vector3(ground.transform.position.x + ground.transform.localScale.x / 2,0f, ground.transform.position.z + ground.transform.localScale.z / 2);
+        Vector3 cornerC = new Vector3(ground.transform.position.x + ground.transform.localScale.x / 2,0f, ground.transform.position.z - ground.transform.localScale.z / 2);
+        Vector3 cornerD = new Vector3(ground.transform.position.x - ground.transform.localScale.x / 2,0f, ground.transform.position.z - ground.transform.localScale.z / 2);
         corners.Add(cornerA);
         corners.Add(cornerB);
         corners.Add(cornerC);
