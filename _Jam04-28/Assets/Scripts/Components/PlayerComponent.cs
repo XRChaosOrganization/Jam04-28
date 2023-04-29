@@ -19,8 +19,8 @@ public class PlayerComponent : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        shipHandler = GetComponent<ShipHandler>();
-        shipHandler.SetCore();
+       // shipHandler = GetComponent<ShipHandler>();
+       // shipHandler.SetCore();
         //shipHandler.SetFrame(bool) avec bool true si frame unlock
         //shipHandler.SetWings(bool) avec bool true si wings unlock
 
@@ -40,6 +40,8 @@ public class PlayerComponent : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        currentHealth -= damage;
+        UIManager.uIm.UpdateHealth(currentHealth / maxHealth);
         //call par les colliders du player
         //mettre une courte invulnérabilité a l'impact pour eviter de comptabiliser le meme impact plusieurs fois sur chaque collinder (avec une coroutine ?)
     }
