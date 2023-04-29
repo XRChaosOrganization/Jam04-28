@@ -6,7 +6,7 @@ public class PlayerCollider : MonoBehaviour
 {
     public void OnCollide(int damage)
     {
-        PlayerComponent.instance.TakeDamage(damage);
+        StartCoroutine( PlayerComponent.instance.TakeDamage(damage));
         //Passer les degats depuis le projectile
     }
 }
