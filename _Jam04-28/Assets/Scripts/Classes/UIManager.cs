@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     public Slider HPDisplay;
     public TMP_Text goldEarnedDisplay;
 
-    List<Button> shopButtonsList;
+    public List<Button> shopButtonsList;
 
     float timeCount ;
     private void Awake()

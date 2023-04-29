@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyBehavior : MonoBehaviour
 {
     public Transform player;
+    public int damageOnHit;
     NavMeshAgent agent;
 
     private void Start()
@@ -15,5 +16,13 @@ public class EnemyBehavior : MonoBehaviour
     private void Update()
     {
         agent.SetDestination(player.position);
+    }
+    private void OnCollisionEnter(Collision col)
+    {
+        //Temporaires avec prefab unités melee!
+        if (col.collider.CompareTag("Player"))
+        {
+            player.GetComponent<PlayerCollider>().OnCollide(damageOnHit);
+        }
     }
 }

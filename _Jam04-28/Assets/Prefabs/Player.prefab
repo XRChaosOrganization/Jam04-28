@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 356122525246471461}
   - component: {fileID: 6719895012737516954}
   - component: {fileID: 9029792283441051320}
+  - component: {fileID: 6318451971328943172}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -472,9 +473,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOrientable: {fileID: 3867882027842685382}
   playerMoveSpeed: 10
+  rotationSpeed: 0
   maxHealth: 0
   currentHealth: 0
   isInvulnerable: 0
+  invulnerabilityTime: 0
 --- !u!114 &6719895012737516954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +517,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6318451971328943172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356122525246471459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d016f42f26934d849b2ec9695badf57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &356122525865355162
 GameObject:
   m_ObjectHideFlags: 0
