@@ -7,6 +7,7 @@ public class PlayerComponent : MonoBehaviour
 {
     public static PlayerComponent instance;
     ShipHandler shipHandler;
+    public GameObject playerOrientable; //Le GameObject à rotate pour face une direction;
     
     public float playerMoveSpeed;
     public int maxHealth;
