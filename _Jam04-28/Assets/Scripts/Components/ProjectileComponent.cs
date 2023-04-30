@@ -15,7 +15,7 @@ public class ProjectileComponent : MonoBehaviour
     {
         if (col.collider.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<EnemyBehavior>().TakeDamage(damage);
+            col.gameObject.GetComponent<MeleeEnemyBehavior>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }

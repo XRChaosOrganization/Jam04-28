@@ -32,7 +32,7 @@ public class SpawnerComponent : MonoBehaviour
     {
         Vector3 rand = RandomSpawnLocation(Random.Range(0, 4), (float)Random.Range(0, 100) / 100);
         GameObject enemyInstance = (GameObject)Instantiate(enemyPrefab, rand, Quaternion.identity, enemyContainer);
-        enemyInstance.GetComponent<EnemyBehavior>().player = player;
+        enemyInstance.GetComponent<MeleeEnemyBehavior>().player = player;
     }
     Vector3 RandomSpawnLocation(int c, float r)
     {

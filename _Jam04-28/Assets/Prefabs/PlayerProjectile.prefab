@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1316014787590661548}
   - component: {fileID: 5069353589247171220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,13 +94,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8584622378381328307}
   - component: {fileID: 53640685546225451}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RainbowlTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8584622378381328307
 Transform:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2461243270181929725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242,7 +242,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2633547307468117608}
-  m_Layer: 0
+  - component: {fileID: 1194830402471757150}
+  - component: {fileID: 4646595167263090987}
+  - component: {fileID: 1551658098910681935}
+  - component: {fileID: 9136251603454928862}
+  m_Layer: 8
   m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,6 +270,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1194830402471757150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442982116036611282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759921f4973228e4c9ac15552eb06539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  damage: 5
+--- !u!114 &4646595167263090987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442982116036611282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6778ae0fee4b383489226b6206d84cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
+  simple: {fileID: 875162891611906074}
+  polished: {fileID: 5582880877364704698}
+  normalTrail: {fileID: 6499339692532256813}
+  rainbowTrail: {fileID: 2461243270181929725}
+--- !u!136 &1551658098910681935
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442982116036611282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &9136251603454928862
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442982116036611282}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &5582880877364704698
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,13 +342,13 @@ GameObject:
   - component: {fileID: 3499465457738097122}
   - component: {fileID: 2700733353642009287}
   - component: {fileID: 2951608482531603975}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3499465457738097122
 Transform:
   m_ObjectHideFlags: 0
@@ -321,7 +386,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3deae74bf5d9cd945a357e87577b51b5, type: 2}
+  - {fileID: 2100000, guid: b848e61d2a650574fbea06de0d1d825a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -361,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 640703904682748852}
   - component: {fileID: 1125947130289142119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6499339692532256813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.7800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

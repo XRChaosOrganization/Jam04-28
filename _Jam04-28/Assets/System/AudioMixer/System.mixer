@@ -110,6 +110,7 @@ AudioMixerController:
     - 9b243824d95a80d4eb252598def25881
     - 623f39802f75c5f4cb266e4161ce4d99
     - 1b216cbe5723bc84f863105239fc4d6c
+    - 588290cc4fd2f5646bc4ac9d2b3810ba
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -128,6 +129,7 @@ AudioMixerGroupController:
   - {fileID: -2055319184819867051}
   - {fileID: -8937351025599988308}
   - {fileID: 8398200377321080989}
+  - {fileID: 1342707355168718425}
   m_Volume: 9ee22283f26ee5644b82630f61e4bd6e
   m_Pitch: 41a51a84b6203864f8e0f8131311cad6
   m_Send: 00000000000000000000000000000000
@@ -162,6 +164,39 @@ AudioMixerSnapshotController:
   m_SnapshotID: 4ce2b36cbd6cc8849b8aa0caaeb3040c
   m_FloatValues: {}
   m_TransitionOverrides: {}
+--- !u!244 &789263066962994670
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5e0a761f979b7e74e9cd80266ee9738d
+  m_EffectName: Attenuation
+  m_MixLevel: ffcdd94e4dfc6bd4081362d59669f21b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &1342707355168718425
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Game Over 2
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 588290cc4fd2f5646bc4ac9d2b3810ba
+  m_Children: []
+  m_Volume: d04bb703df7a9fb45b647bb0fb14c69c
+  m_Pitch: 9140715138bf18e48b18ee405617f0a6
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 789263066962994670}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &1556399069172700166
 AudioMixerEffectController:
   m_ObjectHideFlags: 3

@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool is3D;
     public int goldAmount = 0;
 
     public bool goldBool;
@@ -20,10 +19,13 @@ public class GameManager : MonoBehaviour
     public bool vfx1Bool;
     public bool ms2Bool;
     public bool dashBool;
-    public bool vFX2Bool;
+    public bool graph2Bool;
+    public bool sound2Bool;
     public bool dash2Bool;
     public bool juiceBool;
     public bool feverBool;
+
+    public bool isFeverTime; //A activer pendant que fever est active, sert a déclencher les effets arc-en-ciel et l'extra juice pendant la fever
 
 
     private void Awake()
@@ -67,8 +69,11 @@ public class GameManager : MonoBehaviour
             case "Dash":
                 dashBool = true;
                 break;
-            case "VFX2":
-                vFX2Bool = true;
+            case "Graph2":
+                graph2Bool = true;
+                break;
+            case "Sound2":
+                graph2Bool = true;
                 break;
             case "Dash2":
                 dash2Bool = true;

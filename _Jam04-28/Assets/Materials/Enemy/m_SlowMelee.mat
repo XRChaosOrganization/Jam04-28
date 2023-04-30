@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5391460227734723199
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_EnemyProjectilePolished
-  m_Shader: {fileID: -6465566751694194690, guid: 080d477d96ae9da499c26f4741dda5a3,
+  m_Name: m_SlowMelee
+  m_Shader: {fileID: -6465566751694194690, guid: 9079e4d42902ea7468ce0f48f49f21e4,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -48,12 +35,23 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fresnel: 0.21
-    - _InRadius: 20
-    - _OutRadius: 2.96
+    - _Amplitude: 0.71
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _TimeScale: 1
     m_Colors:
-    - _GlowColor: {r: 1.2075472, g: 0.043690346, b: 0.017087901, a: 0}
-    - _MainColor: {r: 0.9254902, g: 0.36078432, b: 0.36078432, a: 0}
+    - _ColorGlow: {r: 0.22088186, g: 0, b: 0.83018863, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &6898800625629724910
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

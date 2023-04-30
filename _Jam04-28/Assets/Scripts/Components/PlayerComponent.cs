@@ -25,17 +25,25 @@ public class PlayerComponent : MonoBehaviour
     Vector3 moveInput;
     Vector3 lookInput;
     ShipHandler shipHandler;
+    [HideInInspector]public PlayerAudio playerAudio;
 
     private void Awake()
     {
         instance = this;
         playerInput = GetComponent<PlayerInput>();
         currentHealth = maxHealth;
-       // shipHandler = GetComponent<ShipHandler>();
-       // shipHandler.SetCore();
-        //shipHandler.SetFrame(bool) avec bool true si frame unlock
-        //shipHandler.SetWings(bool) avec bool true si wings unlock
+        shipHandler = GetComponent<ShipHandler>();
+
+
+        playerAudio = GetComponent<PlayerAudio>();
         
+    }
+
+    private void Start()
+    {
+        shipHandler.SetCore();
+        shipHandler.SetFrame(GameManager.instance.shoot1Bool);
+        shipHandler.SetWings(GameManager.instance.dashBool);
     }
 
     private void Update()
@@ -75,12 +83,15 @@ public class PlayerComponent : MonoBehaviour
     {
         GameObject bullet = (GameObject)Instantiate(projectilePrefab,shootPoint.position,playerOrientable.transform.rotation,bulletContainer);
         bullet.GetComponent<ProjectileComponent>().damage = playerDamage;
+        if(Time.timeScale != 0)
+            playerAudio.Play(PlayerAudio.PlayerAudioClip.Fire);
     }
 
     public IEnumerator TakeDamage(int damage)
     {
         if (!isInvulnerable)
         {
+            playerAudio.Play(PlayerAudio.PlayerAudioClip.Hit);
             currentHealth -= damage;
             if (currentHealth <=0)
             {

@@ -11,6 +11,7 @@ public class CoinBehavior : MonoBehaviour
         if (col.collider.CompareTag("Player"))
         {
             HUDComponent.hud.UpdateEarnedGold(gold);
+            PlayerComponent.instance.playerAudio.Play(PlayerAudio.PlayerAudioClip.Pickup);
             Destroy(this.gameObject);
         }
     }

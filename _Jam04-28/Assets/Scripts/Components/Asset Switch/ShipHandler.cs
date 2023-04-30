@@ -14,19 +14,19 @@ public class ShipHandler : MonoBehaviour
 
     public void SetCore()
     {
-        core3D.SetActive(GameManager.instance.is3D);
-        core2D.SetActive(!GameManager.instance.is3D);
+        core3D.SetActive(GameManager.instance.graph2Bool);
+        core2D.SetActive(!GameManager.instance.graph2Bool);
     }
 
     public void SetFrame(bool b)
     {
-        frame3D.SetActive(b && GameManager.instance.is3D);
-        frame2D.SetActive(b && !GameManager.instance.is3D);
+        frame3D.SetActive(b && GameManager.instance.graph2Bool);
+        frame2D.SetActive(b && !GameManager.instance.graph2Bool);
     }
 
     public void SetWings(bool b)
     {
-        wings3D.SetActive(b && GameManager.instance.is3D);
-        wings2D.SetActive(b && !GameManager.instance.is3D);
+        wings3D.SetActive(b && GameManager.instance.graph2Bool);
+        wings2D.SetActive(b && !GameManager.instance.graph2Bool);
     }
 }
