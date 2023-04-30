@@ -20,13 +20,22 @@ public class PlayerComponent : MonoBehaviour
     public float invulnerabilityTime;
     public int playerDamage;
     public float fireRateTreshold;
+    public float dashDuration;
+    public float dashDistance;
+    public float dashCd;
 
     float fireRate;
+    float dashCdTime;
     bool canShot;
+    bool canDash;
+    bool isDashing;
     bool Shoot1enabled;
+    float currentDashTime;
     PlayerInput playerInput;
     Vector3 moveInput;
     Vector3 lookInput;
+    Vector3 dashStart;
+    Vector3 dashEnd;
     ShipHandler shipHandler;
     [HideInInspector]public PlayerAudio playerAudio;
 
@@ -36,6 +45,7 @@ public class PlayerComponent : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         currentHealth = maxHealth;
         shipHandler = GetComponent<ShipHandler>();
+        Input.multiTouchEnabled = false;
 
 
         playerAudio = GetComponent<PlayerAudio>();
@@ -53,15 +63,38 @@ public class PlayerComponent : MonoBehaviour
     private void Update()
     {
         fireRate -= Time.deltaTime;
+        dashCdTime -= Time.deltaTime;
+        if (dashCdTime<=0)
+        {
+            canDash = true;
+        }
+        
         if (fireRate <=0 )
         {
             canShot = true;
         }
         transform.position += playerMoveSpeed * Time.deltaTime * moveInput;
+        
         if (lookInput != Vector3.zero)
         {
             Quaternion temp = new Quaternion(0f, Quaternion.LookRotation(lookInput, Vector3.up).y, 0f, Quaternion.LookRotation(lookInput, Vector3.up).w);
             transform.rotation = temp;
+        }
+        
+        if (isDashing)
+        {
+            canDash = false; //Secure l'input
+            currentDashTime += Time.deltaTime;
+            float perc = Mathf.Clamp01(currentDashTime / dashDuration);
+            transform.position = Vector3.Lerp(dashStart, dashEnd, perc);
+
+            if (currentDashTime >= dashDuration)
+            {
+                isDashing = false;
+                transform.position = dashEnd;
+                canDash = false;
+                dashCdTime = dashCd;
+            }
         }
         
     }
@@ -97,6 +130,27 @@ public class PlayerComponent : MonoBehaviour
             if (Time.timeScale != 0)
                 playerAudio.Play(PlayerAudio.PlayerAudioClip.Fire);
         }
+    }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (canDash && GameManager.instance.dashBool)
+        {
+            currentDashTime = 0;
+            dashStart = transform.position;
+            dashEnd = transform.position + moveInput * dashDistance;
+            isDashing = true;
+            if (GameManager.instance.dash2Bool)
+            {
+                StartCoroutine(Dash2(dashDuration));
+            }
+        }
+    }
+    public IEnumerator Dash2(float time)
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(time +0.2f);
+        isInvulnerable = false;
     }
 
     public IEnumerator TakeDamage(int damage)

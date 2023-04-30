@@ -97,8 +97,6 @@ public class GameManager : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneIndex);
-        
-
     }
     public void UpdateGold()
     {
