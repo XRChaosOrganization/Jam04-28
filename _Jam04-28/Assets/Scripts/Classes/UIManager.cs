@@ -50,7 +50,6 @@ public class UIManager : MonoBehaviour
     }
     public void Play()
     {
-        mainMenuPanel.SetActive(false);
         StartCoroutine(GameManager.instance.LoadScene(1));
     }
 

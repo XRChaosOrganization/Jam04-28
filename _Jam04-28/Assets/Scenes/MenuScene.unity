@@ -8229,7 +8229,7 @@ MonoBehaviour:
   feverBool: 0
   isFeverTime: 0
   transition: {fileID: 1342641834}
-  transitionTime: 1
+  transitionTime: 2
 --- !u!4 &1995291776
 Transform:
   m_ObjectHideFlags: 0

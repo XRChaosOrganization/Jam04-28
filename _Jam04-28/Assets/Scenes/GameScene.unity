@@ -318,6 +318,7 @@ MonoBehaviour:
   goldEarned: 0
   goldTimerCoefficent: 0.3
   transition: {fileID: 880293525}
+  transitionTime: 0
 --- !u!1 &159294559
 GameObject:
   m_ObjectHideFlags: 0

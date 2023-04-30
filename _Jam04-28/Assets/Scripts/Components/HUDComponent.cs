@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HUDComponent : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class HUDComponent : MonoBehaviour
     public float goldTimerCoefficent;
     public Animator transition;
     float timeCount;
+
+
+    public float transitionTime;
 
     private void Awake()
     {
@@ -70,4 +74,6 @@ public class HUDComponent : MonoBehaviour
     {
         StartCoroutine(GameManager.instance.LoadScene(0));
     }
+
+
 }

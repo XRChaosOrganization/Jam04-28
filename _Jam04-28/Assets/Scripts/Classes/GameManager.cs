@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LoadScene(int sceneIndex)
     {
-        //transition.SetTrigger("Start");
+        transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneIndex);
     }
