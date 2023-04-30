@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
     public void Play()
     {
         mainMenuPanel.SetActive(false);
-        GameManager.instance.LoadScene(1);
+        StartCoroutine(GameManager.instance.LoadScene(1));
     }
 
    

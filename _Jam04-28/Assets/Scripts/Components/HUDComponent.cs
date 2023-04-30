@@ -14,11 +14,13 @@ public class HUDComponent : MonoBehaviour
     public TMP_Text goldEarnedDisplay;
     public int goldEarned;
     public float goldTimerCoefficent;
+    public Animator transition;
     float timeCount;
 
     private void Awake()
     {
         hud = this;
+        GameManager.instance.transition = transition;
         if (GameManager.instance.timerBool)
         {
             timerDisplay.gameObject.SetActive(true);
@@ -66,7 +68,6 @@ public class HUDComponent : MonoBehaviour
     }
     public void QuitRun()
     {
-        Debug.Log("bite");
-        GameManager.instance.LoadScene(0);
+        StartCoroutine(GameManager.instance.LoadScene(0));
     }
 }

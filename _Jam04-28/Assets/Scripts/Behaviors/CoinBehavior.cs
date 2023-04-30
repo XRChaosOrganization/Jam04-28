@@ -11,7 +11,6 @@ public class CoinBehavior : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            Debug.Log("Bite");
             HUDComponent.hud.UpdateEarnedGold(gold);
             PlayerComponent.instance.playerAudio.Play(PlayerAudio.PlayerAudioClip.Pickup);
             Destroy(this.gameObject);

@@ -25,16 +25,17 @@ public class GameManager : MonoBehaviour
     public bool juiceBool;
     public bool feverBool;
 
-    public bool isFeverTime; //A activer pendant que fever est active, sert a déclencher les effets arc-en-ciel et l'extra juice pendant la fever
+    public bool isFeverTime;
+    public Animator transition;
+    public float transitionTime;
 
 
     private void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this);
-
     }
-
+    
     public void Unlock(string unlockCode)
     {
         switch (unlockCode)
@@ -89,10 +90,15 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    
 
-    public void LoadScene(int sceneIndex)
+    public IEnumerator LoadScene(int sceneIndex)
     {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneIndex);
+        
+
     }
     public void UpdateGold()
     {
