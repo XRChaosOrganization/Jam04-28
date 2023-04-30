@@ -6,10 +6,12 @@ public class CoinBehavior : MonoBehaviour
 {
     public int gold;
 
-    private void OnCollisionEnter(Collision col)
+    
+    private void OnTriggerEnter(Collider col)
     {
-        if (col.collider.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
+            Debug.Log("Bite");
             HUDComponent.hud.UpdateEarnedGold(gold);
             PlayerComponent.instance.playerAudio.Play(PlayerAudio.PlayerAudioClip.Pickup);
             Destroy(this.gameObject);

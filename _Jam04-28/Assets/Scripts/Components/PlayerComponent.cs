@@ -19,7 +19,10 @@ public class PlayerComponent : MonoBehaviour
     public bool isInvulnerable;
     public float invulnerabilityTime;
     public int playerDamage;
+    public float fireRateTreshold;
 
+    float fireRate;
+    bool canShot;
     bool Shoot1enabled;
     PlayerInput playerInput;
     Vector3 moveInput;
@@ -41,6 +44,7 @@ public class PlayerComponent : MonoBehaviour
 
     private void Start()
     {
+        fireRate = fireRateTreshold;
         shipHandler.SetCore();
         shipHandler.SetFrame(GameManager.instance.shoot1Bool);
         shipHandler.SetWings(GameManager.instance.dashBool);
@@ -48,6 +52,11 @@ public class PlayerComponent : MonoBehaviour
 
     private void Update()
     {
+        fireRate -= Time.deltaTime;
+        if (fireRate <=0 )
+        {
+            canShot = true;
+        }
         transform.position += playerMoveSpeed * Time.deltaTime * moveInput;
         if (lookInput != Vector3.zero)
         {
@@ -75,16 +84,19 @@ public class PlayerComponent : MonoBehaviour
             Vector3 temp = context.ReadValue<Vector2>();
             lookInput = new Vector3(temp.x, 0f, temp.y);
         }
-        
-        
     }
 
     public void Fire(InputAction.CallbackContext context)
     {
-        GameObject bullet = (GameObject)Instantiate(projectilePrefab,shootPoint.position,playerOrientable.transform.rotation,bulletContainer);
-        bullet.GetComponent<ProjectileComponent>().damage = playerDamage;
-        if(Time.timeScale != 0)
-            playerAudio.Play(PlayerAudio.PlayerAudioClip.Fire);
+        if (canShot)
+        {
+            GameObject bullet = (GameObject)Instantiate(projectilePrefab, shootPoint.position, playerOrientable.transform.rotation, bulletContainer);
+            bullet.GetComponent<ProjectileComponent>().damage = playerDamage;
+            fireRate = fireRateTreshold;
+            canShot = false;
+            if (Time.timeScale != 0)
+                playerAudio.Play(PlayerAudio.PlayerAudioClip.Fire);
+        }
     }
 
     public IEnumerator TakeDamage(int damage)

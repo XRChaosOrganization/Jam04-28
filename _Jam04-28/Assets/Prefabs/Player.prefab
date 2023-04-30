@@ -496,6 +496,7 @@ MonoBehaviour:
   isInvulnerable: 0
   invulnerabilityTime: 2
   playerDamage: 5
+  fireRateTreshold: 1
   playerAudio: {fileID: 0}
 --- !u!114 &6719895012737516954
 MonoBehaviour:
