@@ -8221,10 +8221,10 @@ MonoBehaviour:
   music1Bool: 0
   vfx1Bool: 0
   ms2Bool: 0
-  dashBool: 0
+  dashBool: 1
   graph2Bool: 0
   sound2Bool: 0
-  dash2Bool: 0
+  dash2Bool: 1
   juiceBool: 0
   feverBool: 0
   isFeverTime: 0

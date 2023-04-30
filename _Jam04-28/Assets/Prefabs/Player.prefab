@@ -516,6 +516,7 @@ MonoBehaviour:
   dashDuration: 0.3
   dashDistance: 15
   dashCd: 1
+  dashDamage: 15
   playerAudio: {fileID: 0}
 --- !u!114 &6719895012737516954
 MonoBehaviour:

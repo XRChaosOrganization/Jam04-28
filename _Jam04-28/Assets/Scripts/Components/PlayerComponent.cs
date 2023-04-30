@@ -23,12 +23,13 @@ public class PlayerComponent : MonoBehaviour
     public float dashDuration;
     public float dashDistance;
     public float dashCd;
+    public int dashDamage;
 
     float fireRate;
     float dashCdTime;
     bool canShot;
     bool canDash;
-    bool isDashing;
+    public bool isDashing;
     bool Shoot1enabled;
     float currentDashTime;
     PlayerInput playerInput;
@@ -98,6 +99,7 @@ public class PlayerComponent : MonoBehaviour
         }
         
     }
+    
     public void Move(InputAction.CallbackContext context)
     {
         Vector2 temp = context.ReadValue<Vector2>();
@@ -140,10 +142,8 @@ public class PlayerComponent : MonoBehaviour
             dashStart = transform.position;
             dashEnd = transform.position + moveInput * dashDistance;
             isDashing = true;
-            if (GameManager.instance.dash2Bool)
-            {
-                StartCoroutine(Dash2(dashDuration));
-            }
+            StartCoroutine(Dash2(dashDuration));
+           
         }
     }
     public IEnumerator Dash2(float time)

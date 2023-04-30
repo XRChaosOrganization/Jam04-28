@@ -40,10 +40,18 @@ public class MeleeEnemyBehavior : MonoBehaviour
     }
     private void OnCollisionEnter(Collision col)
     {
-        //Temporaires avec prefab unités melee!
+        
         if (col.collider.CompareTag("Player"))
         {
-            player.GetComponent<PlayerCollider>().OnCollide(damageOnHit);
+            if (player.GetComponent<PlayerComponent>().isDashing && GameManager.instance.dash2Bool)
+            {
+                TakeDamage(player.GetComponent<PlayerComponent>().dashDamage);
+            }
+            else
+            {
+                player.GetComponent<PlayerCollider>().OnCollide(damageOnHit);
+            }
+            
         }
     }
 
