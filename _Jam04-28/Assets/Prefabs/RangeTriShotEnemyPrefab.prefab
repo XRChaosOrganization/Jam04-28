@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &76140809232416906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4476185026455140383}
+  m_Layer: 0
+  m_Name: ShootPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4476185026455140383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76140809232416906}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.009, y: 0, z: -0.892}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7983284573403214486}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &454418089170295333
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,14 +40,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454418089170295384}
-  - component: {fileID: 454418089170295332}
   - component: {fileID: 454418089170295391}
   - component: {fileID: 2786071616696743778}
+  - component: {fileID: -3060034839781509330}
   - component: {fileID: 8959279583971462839}
   - component: {fileID: 2942113347360168766}
   - component: {fileID: 6995403101545856801}
   m_Layer: 9
-  m_Name: FastMeleeEnemyPrefab
+  m_Name: RangeTriShotEnemyPrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,28 +67,10 @@ Transform:
   m_Children:
   - {fileID: 1691835310910262614}
   - {fileID: 2508701700599670784}
+  - {fileID: 7983284573403214486}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &454418089170295332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454418089170295333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d057b0aade74e48b66b49a19833f6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 8668701740208156050, guid: b68b2038e3f0dde43860e9d5e88d592e,
-    type: 3}
-  player: {fileID: 0}
-  HP: 15
-  damageOnHit: 5
-  goldWorth: 10
-  enemyAudio: {fileID: 0}
 --- !u!195 &454418089170295391
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -96,6 +109,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &-3060034839781509330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454418089170295333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6107290d9add3a9438eda7113b51d4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 8668701740208156050, guid: b68b2038e3f0dde43860e9d5e88d592e,
+    type: 3}
+  enemyProjectilePrefab: {fileID: 3442982116036611282, guid: 40ef300850a21c54a9d7d09963bedb6f,
+    type: 3}
+  shootPoints:
+  - {fileID: 5838708055044244860}
+  - {fileID: 76140809232416906}
+  - {fileID: 7168264457415383915}
+  player: {fileID: 356122525246471460, guid: a8c92f6f5cd9a4941b077d67e9e800d0, type: 3}
+  bulletContainer: {fileID: 2633547307468117608, guid: 40ef300850a21c54a9d7d09963bedb6f,
+    type: 3}
+  HP: 15
+  damageOnHit: 10
+  goldWorth: 20
+  range: 50
+  fireRate: 5
+  enemyAudio: {fileID: 0}
 --- !u!135 &8959279583971462839
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -369,6 +411,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2557230660673575771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7983284573403214486}
+  m_Layer: 0
+  m_Name: ShootPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7983284573403214486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557230660673575771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1542083793738035919}
+  - {fileID: 4476185026455140383}
+  - {fileID: 4213325828757861663}
+  m_Father: {fileID: 454418089170295384}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2600976118580740012
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +591,37 @@ MonoBehaviour:
   mixer1: {fileID: -8759619307263595545, guid: 3bd330b734d7d22438fcc7d11ed4a02d, type: 2}
   clip2: {fileID: 8300000, guid: 5814e282015b43b43b486f5077882767, type: 3}
   mixer2: {fileID: 6974048636338325501, guid: 3bd330b734d7d22438fcc7d11ed4a02d, type: 2}
+--- !u!1 &5838708055044244860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542083793738035919}
+  m_Layer: 0
+  m_Name: ShootPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1542083793738035919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838708055044244860}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0.678, y: 0, z: 0.626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7983284573403214486}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &5900179304083531204
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +738,37 @@ Transform:
   m_Father: {fileID: 454418089170295384}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7168264457415383915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4213325828757861663}
+  m_Layer: 0
+  m_Name: ShootPoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4213325828757861663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168264457415383915}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -0.898, y: 0, z: 0.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7983284573403214486}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!1 &7496688011701211577
 GameObject:
   m_ObjectHideFlags: 0

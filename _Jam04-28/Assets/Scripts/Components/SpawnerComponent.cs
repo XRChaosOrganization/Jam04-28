@@ -21,18 +21,21 @@ public class SpawnerComponent : MonoBehaviour
     }
     private void Update()
     {
-        spawnRate = spawnRate - Time.deltaTime;
+        spawnRate -= Time.deltaTime;
+        
         if (spawnRate <= 0)
         {
-            SpawnEnemy();
             spawnRate = spawnRateTreshold;
+            SpawnEnemy();
+            
         }
     }
     void SpawnEnemy()
     {
         Vector3 rand = RandomSpawnLocation(Random.Range(0, 4), (float)Random.Range(0, 100) / 100);
         GameObject enemyInstance = (GameObject)Instantiate(enemyPrefab, rand, Quaternion.identity, enemyContainer);
-        enemyInstance.GetComponent<MeleeEnemyBehavior>().player = player;
+        // FAIRE UN SWITCH SELON LENNEMI INSTANCIE
+        enemyInstance.GetComponent<RangeTriShotEnemyBehavior>().player = player;
     }
     Vector3 RandomSpawnLocation(int c, float r)
     {
