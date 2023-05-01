@@ -1155,7 +1155,7 @@ MonoBehaviour:
   audioType: 1
   clip1: {fileID: 8300000, guid: 5eb2421a7431ddc44837bc6780f6e3e8, type: 3}
   mixer1: {fileID: -8345296216991577719, guid: bdde87cdd1c198646a7d56562526d4b3, type: 2}
-  clip2: {fileID: 8300000, guid: e15169f9d1e6f7e45a7708add2c90401, type: 3}
+  clip2: {fileID: 8300000, guid: 7be0b7b7fae174d4fabf0527e392a9f0, type: 3}
   mixer2: {fileID: 7189745852669563033, guid: bdde87cdd1c198646a7d56562526d4b3, type: 2}
 --- !u!1 &2391291923534961108
 GameObject:

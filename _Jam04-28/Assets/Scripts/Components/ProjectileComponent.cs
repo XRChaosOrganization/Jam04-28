@@ -6,6 +6,12 @@ public class ProjectileComponent : MonoBehaviour
 {
     public float moveSpeed;
     public int damage;
+    public float lifespan = 10f;
+
+    private void Start()
+    {
+        Destroy(this.gameObject, lifespan);
+    }
 
     private void Update()
     {
