@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnerComponent : MonoBehaviour
 {
     public GameObject ground;
+    public BoxCollider col;
     public float spawnRateTreshold;
     public Transform enemyContainer;
     public GameObject enemyPrefab;
@@ -15,6 +16,7 @@ public class SpawnerComponent : MonoBehaviour
 
     private void Awake()
     {
+        col = GetComponent<BoxCollider>();
         GetCorners();
         spawnRate = spawnRateTreshold;
         
@@ -50,10 +52,12 @@ public class SpawnerComponent : MonoBehaviour
     }
     void GetCorners()
     {
-        Vector3 cornerA = new Vector3(ground.transform.position.x - ground.transform.localScale.x / 2,0f, ground.transform.position.z + ground.transform.localScale.z / 2);
-        Vector3 cornerB = new Vector3(ground.transform.position.x + ground.transform.localScale.x / 2,0f, ground.transform.position.z + ground.transform.localScale.z / 2);
-        Vector3 cornerC = new Vector3(ground.transform.position.x + ground.transform.localScale.x / 2,0f, ground.transform.position.z - ground.transform.localScale.z / 2);
-        Vector3 cornerD = new Vector3(ground.transform.position.x - ground.transform.localScale.x / 2,0f, ground.transform.position.z - ground.transform.localScale.z / 2);
+        Vector3 cornerA = new Vector3(col.center.x - col.size.x / 2,0f, col.center.z + col.size.z / 2);
+        Vector3 cornerB = new Vector3(col.center.x + col.size.x / 2,0f, col.center.z + col.size.z / 2);
+        Vector3 cornerC = new Vector3(col.center.x + col.size.x / 2,0f, col.center.z - col.size.z / 2);
+        Vector3 cornerD = new Vector3(col.center.x - col.size.x / 2,0f, col.center.z - col.size.z / 2);
+        
+        Debug.Log(col.bounds);
         corners.Add(cornerA);
         corners.Add(cornerB);
         corners.Add(cornerC);
