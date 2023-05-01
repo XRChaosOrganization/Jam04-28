@@ -18,12 +18,14 @@ public class RangeTriShotEnemyBehavior : MonoBehaviour
 
     float fireRateTime;
     NavMeshAgent agent;
+    VFX_Handler vfxHandler;
 
     [HideInInspector] public EnemyAudio enemyAudio;
 
     private void Awake()
     {
         enemyAudio = GetComponent<EnemyAudio>();
+        vfxHandler = GetComponent<VFX_Handler>();
     }
 
     private void Start()
@@ -86,6 +88,7 @@ public class RangeTriShotEnemyBehavior : MonoBehaviour
 
     IEnumerator KillEnemy()
     {
+        vfxHandler.PlayAt(transform.position);
         transform.Find("Mesh").gameObject.SetActive(false);
         GameObject coin = (GameObject)Instantiate(coinPrefab, transform.position, Quaternion.identity);
         coin.GetComponent<CoinBehavior>().gold = goldWorth;

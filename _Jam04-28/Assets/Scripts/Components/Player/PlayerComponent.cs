@@ -40,6 +40,8 @@ public class PlayerComponent : MonoBehaviour
     ShipHandler shipHandler;
     [HideInInspector]public PlayerAudio playerAudio;
     MeshTrail meshTrail;
+    VFX_Handler vfxHandler;
+    Animator animator;
 
     private void Awake()
     {
@@ -51,6 +53,8 @@ public class PlayerComponent : MonoBehaviour
 
         meshTrail = GetComponent<MeshTrail>();
         playerAudio = GetComponent<PlayerAudio>();
+        vfxHandler = GetComponent<VFX_Handler>();
+        animator = GetComponent<Animator>();
         
     }
 
@@ -165,9 +169,11 @@ public class PlayerComponent : MonoBehaviour
         if (!isInvulnerable)
         {
             playerAudio.Play(PlayerAudio.PlayerAudioClip.Hit);
+            animator.SetTrigger("Damage");
             currentHealth -= damage;
             if (currentHealth <=0)
             {
+                vfxHandler.PlayAt(transform.position);
                 HUDComponent.hud.EndRun();
             }
             else

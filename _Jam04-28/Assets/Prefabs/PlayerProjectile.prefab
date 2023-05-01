@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 4646595167263090987}
   - component: {fileID: 1551658098910681935}
   - component: {fileID: 9136251603454928862}
+  - component: {fileID: 4699372243235340900}
   m_Layer: 8
   m_Name: PlayerProjectile
   m_TagString: Untagged
@@ -284,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   damage: 5
+  lifespan: 10
 --- !u!114 &4646595167263090987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +333,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &4699372243235340900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442982116036611282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2b825a7523e0a41b2d955f1be75503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  simple: {fileID: 6808919761377287373, guid: c2a3953505b95934fab29cd6dd4a44ee, type: 3}
+  polished: {fileID: 0}
+  lifetime: 4
 --- !u!1 &5582880877364704698
 GameObject:
   m_ObjectHideFlags: 0
