@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356122524132405025}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.588}
+  m_LocalPosition: {x: 0, y: 0, z: -0.598}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356122525147608761}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.754}
+  m_LocalPosition: {x: 0, y: -0, z: 0.792}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 9029792283441051320}
   - component: {fileID: 6318451971328943172}
   - component: {fileID: 1880431358967409058}
+  - component: {fileID: 2141997601890340698}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -585,6 +586,28 @@ MonoBehaviour:
   fire: {fileID: 7372511193079098041}
   hit: {fileID: 202288849630662985}
   pickup: {fileID: 5542253418767239669}
+--- !u!114 &2141997601890340698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356122525246471459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb6a712f121e5a429e76f6dc587d761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrailActive: 0
+  meshRefreshRate: 0.05
+  meshDestroyDelay: 1
+  positionToSpawn: {fileID: 356122525246471460}
+  meshPosOffset: {x: 0, y: -1, z: 0}
+  sizeOffset: {x: 1.45, y: 1.45, z: 1.45}
+  meshMaterial: {fileID: 2100000, guid: 55680ce9b7211fe4cab6616f66017985, type: 2}
+  spriteMaterial: {fileID: 2100000, guid: 0e6f35a8cbe9c234daed464ac2105c08, type: 2}
+  alphaRate: 0.1
+  alphaRefeshRate: 0.05
 --- !u!1 &356122525865355162
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356122526138950650}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.002}
   m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -760,7 +783,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.47, y: 0.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -928,7 +951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099366611983111523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -982,7 +1005,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

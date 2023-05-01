@@ -39,6 +39,7 @@ public class PlayerComponent : MonoBehaviour
     Vector3 dashEnd;
     ShipHandler shipHandler;
     [HideInInspector]public PlayerAudio playerAudio;
+    MeshTrail meshTrail;
 
     private void Awake()
     {
@@ -48,7 +49,7 @@ public class PlayerComponent : MonoBehaviour
         shipHandler = GetComponent<ShipHandler>();
         Input.multiTouchEnabled = false;
 
-
+        meshTrail = GetComponent<MeshTrail>();
         playerAudio = GetComponent<PlayerAudio>();
         
     }
@@ -138,6 +139,12 @@ public class PlayerComponent : MonoBehaviour
     {
         if (canDash && GameManager.instance.dashBool)
         {
+            if (!meshTrail.isTrailActive)
+            {
+                meshTrail.isTrailActive = true;
+                StartCoroutine(meshTrail.ActivateTrail(dashDuration));
+            }
+            
             currentDashTime = 0;
             dashStart = transform.position;
             dashEnd = transform.position + moveInput * dashDistance;
