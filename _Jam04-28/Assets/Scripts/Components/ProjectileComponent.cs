@@ -30,7 +30,7 @@ public class ProjectileComponent : MonoBehaviour
         {
             vfx.PlayAt(transform.position);
 
-            col.gameObject.GetComponent<MeleeEnemyBehavior>().TakeDamage(damage);
+            col.gameObject.GetComponent<RangeTriShotEnemyBehavior>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }

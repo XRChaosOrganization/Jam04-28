@@ -150,7 +150,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2942113347360168766
 MonoBehaviour:
@@ -196,6 +196,7 @@ MonoBehaviour:
   simple: {fileID: 5762137074532908702, guid: e6915310982f42f438299304f481f687, type: 3}
   polished: {fileID: 4677579644405825487, guid: 14c15b3b7dbf7344888eac3502aa20d6,
     type: 3}
+  lifetime: 4
 --- !u!1 &706412856210720092
 GameObject:
   m_ObjectHideFlags: 0

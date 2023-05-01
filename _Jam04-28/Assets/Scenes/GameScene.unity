@@ -364,8 +364,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground: {fileID: 425478299}
+  col: {fileID: 0}
   spawnRateTreshold: 5
   enemyContainer: {fileID: 1555521779}
+  bulletContainer: {fileID: 0}
   enemyPrefab: {fileID: 454418089170295333, guid: 7d8ea78ecac929f4d8453f89c1e8b77f,
     type: 3}
   corners: []
@@ -1036,7 +1038,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 159294560}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2395,6 +2398,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808807777}
   m_CullTransparentMesh: 1
+--- !u!65 &1915073335 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8786372262835056817, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 356122524861876762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2021569632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,11 +2854,31 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1647367891204733669, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647367891204733669, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647367891204733669, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2099366611983111523, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
         type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7059292558850969142, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+        type: 3}
+      propertyPath: col
+      value: 
+      objectReference: {fileID: 1915073335}
     - target: {fileID: 7059292558850969142, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
         type: 3}
       propertyPath: ground
@@ -2860,6 +2889,11 @@ PrefabInstance:
       propertyPath: enemyContainer
       value: 
       objectReference: {fileID: 1555521779}
+    - target: {fileID: 7059292558850969142, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+        type: 3}
+      propertyPath: bulletContainer
+      value: 
+      objectReference: {fileID: 1806756308}
     - target: {fileID: 8425327190392195161, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
         type: 3}
       propertyPath: m_Height
@@ -2869,6 +2903,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786372262835056817, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786372262835056817, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9029792283441051320, guid: a8c92f6f5cd9a4941b077d67e9e800d0,
         type: 3}

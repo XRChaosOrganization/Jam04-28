@@ -48,7 +48,6 @@ public class RangeTriShotEnemyBehavior : MonoBehaviour
                 fireRateTime = fireRate;
                 for (int i = 0; i < shootPoints.Count; i++)
                 {
-                    Debug.Log(i);
                     GameObject shotGO = Instantiate(enemyProjectilePrefab, shootPoints[i].transform.position, shootPoints[i].transform.rotation, bulletContainer.transform);
                     shotGO.GetComponent<EnemyProjectileComponent>().damage = damageOnHit;
                 }

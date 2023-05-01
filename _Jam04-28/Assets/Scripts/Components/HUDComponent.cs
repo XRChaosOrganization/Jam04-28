@@ -24,7 +24,7 @@ public class HUDComponent : MonoBehaviour
     private void Awake()
     {
         hud = this;
-        GameManager.instance.transition = transition;
+        //GameManager.instance.transition = transition;
         if (GameManager.instance.timerBool)
         {
             timerDisplay.gameObject.SetActive(true);

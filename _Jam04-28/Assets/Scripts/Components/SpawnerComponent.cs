@@ -8,6 +8,7 @@ public class SpawnerComponent : MonoBehaviour
     public BoxCollider col;
     public float spawnRateTreshold;
     public Transform enemyContainer;
+    public Transform bulletContainer;
     public GameObject enemyPrefab;
     float spawnRate;
     public List<Vector3> corners;
@@ -16,7 +17,6 @@ public class SpawnerComponent : MonoBehaviour
 
     private void Awake()
     {
-        col = GetComponent<BoxCollider>();
         GetCorners();
         spawnRate = spawnRateTreshold;
         
@@ -29,7 +29,8 @@ public class SpawnerComponent : MonoBehaviour
         {
             spawnRate = spawnRateTreshold;
             SpawnEnemy();
-            
+            corners.Clear();
+            GetCorners();
         }
     }
     void SpawnEnemy()
@@ -38,6 +39,7 @@ public class SpawnerComponent : MonoBehaviour
         GameObject enemyInstance = (GameObject)Instantiate(enemyPrefab, rand, Quaternion.identity, enemyContainer);
         // FAIRE UN SWITCH SELON LENNEMI INSTANCIE
         enemyInstance.GetComponent<RangeTriShotEnemyBehavior>().player = player;
+        enemyInstance.GetComponent<RangeTriShotEnemyBehavior>().bulletContainer = bulletContainer;
     }
     Vector3 RandomSpawnLocation(int c, float r)
     {
@@ -52,12 +54,10 @@ public class SpawnerComponent : MonoBehaviour
     }
     void GetCorners()
     {
-        Vector3 cornerA = new Vector3(col.center.x - col.size.x / 2,0f, col.center.z + col.size.z / 2);
-        Vector3 cornerB = new Vector3(col.center.x + col.size.x / 2,0f, col.center.z + col.size.z / 2);
-        Vector3 cornerC = new Vector3(col.center.x + col.size.x / 2,0f, col.center.z - col.size.z / 2);
-        Vector3 cornerD = new Vector3(col.center.x - col.size.x / 2,0f, col.center.z - col.size.z / 2);
-        
-        Debug.Log(col.bounds);
+        Vector3 cornerA = new Vector3(player.transform.position.x - col.size.x / 2,0f, player.transform.position.z + col.size.z / 2);
+        Vector3 cornerB = new Vector3(player.transform.position.x + col.size.x / 2,0f, player.transform.position.z + col.size.z / 2);
+        Vector3 cornerC = new Vector3(player.transform.position.x + col.size.x / 2,0f, player.transform.position.z - col.size.z / 2);
+        Vector3 cornerD = new Vector3(player.transform.position.x - col.size.x / 2,0f, player.transform.position.z - col.size.z / 2);
         corners.Add(cornerA);
         corners.Add(cornerB);
         corners.Add(cornerC);
