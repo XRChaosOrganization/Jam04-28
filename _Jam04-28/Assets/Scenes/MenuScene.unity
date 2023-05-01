@@ -10238,7 +10238,7 @@ MonoBehaviour:
   ms2Bool: 0
   dashBool: 1
   graph2Bool: 1
-  sound2Bool: 1
+  sound2Bool: 0
   dash2Bool: 1
   juiceBool: 0
   feverBool: 0
