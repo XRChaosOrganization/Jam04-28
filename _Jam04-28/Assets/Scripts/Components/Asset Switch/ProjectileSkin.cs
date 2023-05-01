@@ -13,7 +13,7 @@ public class ProjectileSkin : MonoBehaviour
     [SerializeField] GameObject normalTrail;
     [SerializeField] GameObject rainbowTrail;
 
-    private void Awake()
+    private void Start()
     {
         simple.SetActive(!GameManager.instance.graph2Bool);
         polished.SetActive(GameManager.instance.graph2Bool);

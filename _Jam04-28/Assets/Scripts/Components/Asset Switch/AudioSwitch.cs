@@ -28,8 +28,17 @@ public class AudioSwitch : MonoBehaviour
     {
         if (GameManager.instance.sound2Bool)
         {
-            audioSource.clip = clip2;
-            audioSource.outputAudioMixerGroup = mixer2;
+            if (clip2 != null)
+            {
+                audioSource.clip = clip2;
+                audioSource.outputAudioMixerGroup = mixer2;
+            }
+            else
+            {
+                audioSource.clip = clip1;
+                audioSource.outputAudioMixerGroup = mixer1;
+            }
+            
         }
         else if (Level1Check())
         {

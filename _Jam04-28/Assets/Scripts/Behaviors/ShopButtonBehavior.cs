@@ -10,6 +10,18 @@ public class ShopButtonBehavior : MonoBehaviour
     public TMP_Text pricetext;
     public string unlockKeyWord;
     public TMP_Text shopDenyDisplay;
+    Button button;
+
+    private void Awake()
+    {
+        button = GetComponent<Button>();
+        button.interactable = price <= GameManager.instance.goldAmount;
+    }
+
+    private void Update()
+    {
+        button.interactable = price <= GameManager.instance.goldAmount;
+    }
 
 
     public void BuyUnlock()
