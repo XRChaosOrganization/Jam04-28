@@ -48,12 +48,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fresnel: 0.21
-    - _InRadius: 20
-    - _OutRadius: 2.96
+    - _Fresnel: 1
+    - _InRadius: 1
+    - _OutRadius: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _GlowColor: {r: 0, g: 0.3636488, b: 2.5945864, a: 0}
-    - _MainColor: {r: 0, g: 0.09511135, b: 1, a: 0}
+    - _GlowColor: {r: 0.43166187, g: 1.2710809, b: 2.614638, a: 0}
+    - _MainColor: {r: 0, g: 0.09523797, b: 1, a: 0}
   m_BuildTextureStacks: []
